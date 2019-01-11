@@ -1,6 +1,6 @@
 class Queue:
     def __init__(self):
-        self.CAPACITY = 25
+        self.CAPACITY = 3
         self.arr = [None] * self.CAPACITY
         self.front = 0 ## don't really need 'front' variable. can use back - size
         self.back = 0
@@ -36,4 +36,4 @@ class Queue:
     def isEmpty(self):
         return size == 0
     def __repr__(self):
-        return str(self.arr[self.front:self.back])
+        return str(self.arr)
