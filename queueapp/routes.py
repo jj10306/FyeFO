@@ -8,7 +8,7 @@ def index():
 
     if request.method == 'POST':
         name = request.form["student_name"]
-        choice = request.form["choice"]
+        choice = request.form["reason"]
         print(name)
 
     return render_template('index.html', form=form)
