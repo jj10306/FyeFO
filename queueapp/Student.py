@@ -12,4 +12,4 @@ class Student:
         return (self.time.tm_hour, self.time.tm_min, self.time.tm_sec, self.time.tm_wday)
     def __repr__(self):
         return "{}:{}({}:{}:{})".format(self.name,self.reason, self.getTime()[0], self.getTime()[1], self.getTime()[2])
-      
+
