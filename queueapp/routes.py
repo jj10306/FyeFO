@@ -15,8 +15,8 @@ def index():
     if request.method == 'POST':
         name = request.form["student_name"]
         choice = request.form["reason"]
-
-        daQueue.enqueue(Student(name,choice))
+        if name != "" and choice != "Select":
+        	daQueue.enqueue(Student(name,choice))
 
     table = StudentTable(daQueue.__repr__())
 

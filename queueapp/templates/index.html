@@ -4,12 +4,14 @@
     <title> FyeFO </title>
 </head>
 <body>
-    <h1> Dab! </h1>
+    <h1> FyeFo: The CS1301 Help Desk Queue </h1>
     <form action= "/" method="POST">
         <div>
-            {{form.student_name}}
-            {{form.reason}}
-            {{form.button}}
+        	{{form.student_name.label}} <br/><br/>
+            {{form.student_name}}<br/><br/>
+            {{form.reason.label}}<br/><br/>
+            {{form.reason}}<br/><br/>
+            {{form.button}}<br/><br/><br/>
         </div>
     </form>
 
