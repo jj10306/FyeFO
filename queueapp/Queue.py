@@ -36,4 +36,9 @@ class Queue:
     def isEmpty(self):
         return size == 0
     def __repr__(self):
-        return str(self.arr)
+        temp = []
+        index = self.front
+        for i in range(self.size):
+            temp.append(self.arr[index])
+            index  = (index + 1) % self.arr.length
+        return temp
