@@ -1,6 +1,6 @@
 from time import localtime
 class Student:
-    def __init__(self,name, reason):
+    def __init__(self,name,reason):
         self.name = name.strip()
         self.time = localtime()
         self.reason = reason

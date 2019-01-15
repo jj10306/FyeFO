@@ -6,7 +6,6 @@ from queueapp.table import StudentTable
 from queueapp.Student import Student
 
 daQueue = Queue() #this is the queue whose contents are being displayed
-test = [Student("Jakob"), Student("Damian")]
 
 @app.route("/", methods = ['GET', 'POST'])
 def index():
@@ -17,11 +16,9 @@ def index():
         name = request.form["student_name"]
         choice = request.form["reason"]
         
-        if 25 == 25:
-        	flash("Too many people :(")
-        print(name)
+        daQueue.enqueue(Student(name,choice))
 
-    table = StudentTable(test)
+    table = StudentTable(daQueue.__repr__())
 
     return render_template('index.html', form=form, table=table)
 

@@ -1,6 +1,6 @@
 class Queue:
     def __init__(self):
-        self.CAPACITY = 3
+        self.CAPACITY = 100
         self.arr = [None] * self.CAPACITY
         self.front = 0 ## don't really need 'front' variable. can use back - size
         self.back = 0
@@ -40,5 +40,5 @@ class Queue:
         index = self.front
         for i in range(self.size):
             temp.append(self.arr[index])
-            index  = (index + 1) % self.arr.length
+            index  = (index + 1) % len(self.arr)
         return temp
