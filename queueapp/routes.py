@@ -11,15 +11,22 @@ daQueue = Queue() #this is the queue whose contents are being displayed
 def index():
     form = Form()
 
-
-    if request.method == 'POST':
-        name = request.form["student_name"]
-        choice = request.form["reason"]
-        if name != "" and choice != "Select":
-        	daQueue.enqueue(Student(name,choice))
-
+    if request.method == "POST":
+        if request.form["button"] == "Submit":
+            name = request.form["student_name"]
+            choice = request.form["reason"]
+            if name != "" and choice != "Select":
+                daQueue.enqueue(Student(name,choice))
     table = StudentTable(daQueue.__repr__())
 
     return render_template('index.html', form=form, table=table)
 
 
+@app.route("/ta", methods = ['GET', 'POST'])
+def taIndex():
+    form = Form()
+    if request.method == "POST":
+        if request.form["removeButton"] == "Remove":
+            daQueue.dequeue()
+    table = StudentTable(daQueue.__repr__())
+    return render_template('taIndex.html', form=form, table=table)
