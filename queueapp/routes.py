@@ -31,7 +31,7 @@ def taIndex():
     if request.method == "POST":
         if request.form["removeButton"] == "Remove":
             daQueue.dequeue()
-        return redirect(url_for("queueIndex"))
+        return render_template('taIndex.html', form=form, table=table)
 
 @app.route("/queue", methods = ['GET'])
 def queueIndex():
