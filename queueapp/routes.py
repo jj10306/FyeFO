@@ -26,12 +26,12 @@ def index():
 def taIndex():
     form = Form()
     table = StudentTable(daQueue.__repr__())
-    if request.method == "GET":
-        return render_template('taIndex.html', form=form, table=table)
+
     if request.method == "POST":
         if request.form["removeButton"] == "Remove":
             daQueue.dequeue()
-        return render_template('taIndex.html', form=form, table=table)
+
+    return render_template('taIndex.html', form=form, table=table)
 
 @app.route("/queue", methods = ['GET'])
 def queueIndex():
@@ -39,3 +39,11 @@ def queueIndex():
     if request.method == "GET":
         table = StudentTable(daQueue.__repr__())
         return render_template('queue.html', form=form, table=table)
+
+@app.route("/update")
+def update():
+    form = Form()
+    table = StudentTable(daQueue.__repr__())
+
+    return render_template('taIndex.html', form=form, table=table)
+
