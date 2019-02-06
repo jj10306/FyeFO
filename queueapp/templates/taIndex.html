@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
+    <title> FyeFO (TA) </title>
+
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript">
+
+    var timeout = setInterval(reloadTable, 250);
+    function reloadTable () {
+
+     $('#table').load('/update #table');
+ }
+</script>
+
 </head>
 <body>
+
     <h1> FyeFo: The CS1301 Help Desk Queue (TA) </h1>
     <form action= "/ta" method="POST">
         <div>
-            <p>Queue on "/queue"</p><br/><br/><br/>
+
             {{form.removeButton}}<br/><br/><br/>
         </div>
     </form>
 
+    <div id="table">
+    {{table}}
+    </div>
 
 </body>
 </html>
