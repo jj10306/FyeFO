@@ -1,18 +1,19 @@
-import os
+from os import path
 import hashlib
+#hashing info from:
 # https://pythonprogramming.net/password-hashing-flask-tutorial/
 
-# dictionary containing {gtid: name pairs} that will be passed across modules
 data_dict = dict()
 
 def data_scrape():
-    # gets the path to clean_data.csv, agnostic to directory
-    # structure as long as __file__ and clean_data.csv are in sibling directories
-    # fileDir = os.path.dirname(os.path.realpath('__file__'))
-    # filename = os.path.join(fileDir, '../data/clean_data.csv')
-    # filename = os.path.abspath(os.path.realpath(filename))
 
-    roster = open("clean_data.csv")
+    #gets absolute path of current directory: /Users/Jakob/Desktop/pi_queue/FyeFO/piQ
+    basepath = path.dirname(__file__)
+    #steps back two levels and into /data directory where file is located
+    filepath = path.abspath(path.join(basepath, "../../data", "clean_data.csv"))
+    roster = open(filepath, "r")
+
+    # roster = open("clean_data.csv")
     roster.readline()
     student_lines = roster.readlines()
 
