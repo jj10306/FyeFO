@@ -17,6 +17,7 @@
           <input type="submit" id="remove" name="remove" value="Remove next">
           <input type="submit" name="clear" value="Clear the queue" onclick="youSure(event)">
           <input type="submit" id="exit" name="exit" value="Exit">
+          <input type="submit" id="signout" name="signout" value="Sign-Out" onclick="signOut('{{name}}')">
         </form>
     </div>
 
@@ -78,6 +79,10 @@ function youSure(event) {
   if (!confirm("You are about to clear the ENTIRE queue, are you sure you want to do this?")) {
     event.preventDefault();
   }
+}
+
+function signOut(name) {
+  console.log("hi");
 }
 </script>
 

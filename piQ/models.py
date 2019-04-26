@@ -5,6 +5,7 @@ class Queue:
         self.front = 0 ## don't really need 'front' variable. can use back - size
         self.back = 0
         self.size = 0
+        self.tas = []
     def enqueue(self,student): #back to right
         if student == None:
             return "Student cannot be None!"
@@ -21,7 +22,12 @@ class Queue:
         self.arr[self.front] = None
         self.front = (self.front + 1) % len(self.arr)
         self.size -= 1
-        return returned
+    def addTa(self,ta):
+        if ta not in self.tas:
+            self.tas.append(ta)
+    def removeTa(self,ta):
+        if ta in self.tas:
+            self.tas.remove(ta)
     def peek(self):
         if self.size == 0:
             return "Queue is empty!"
