@@ -16,8 +16,8 @@
           <p> Hello {{name}}, what would you like to do? </p>
           <input type="submit" id="remove" name="remove" value="Remove next">
           <input type="submit" name="clear" value="Clear the queue" onclick="youSure(event)">
+          <input type="submit" id="signout" name="signout" value="Sign-Out">
           <input type="submit" id="exit" name="exit" value="Exit">
-          <input type="submit" id="signout" name="signout" value="Sign-Out" onclick="signOut('{{name}}')">
         </form>
     </div>
 
@@ -62,12 +62,18 @@ function load_queue(queue, tas) {
   }
   console.log(tas);
   let tas_element = document.getElementById("tas");
-
+  var picdict = {"Jakob Brian Johnson":"jakob.png",
+                  "Damian William Henry":"damian.png"}
   for (var i = 0; i < tas.length; i++) {
     // let num = (i + 1).toString() + ". ";
     var para = document.createElement("p");
     var node = document.createTextNode(tas[i]);
+    var DOM_img = document.createElement("img");
+    DOM_img.src = "static/"+ picdict[tas[i]]
+    DOM_img.height = 150;
+    DOM_img.width = 100;
     para.appendChild(node);
+    para.appendChild(DOM_img);
     tas_element.appendChild(para);
   }
 
@@ -81,9 +87,6 @@ function youSure(event) {
   }
 }
 
-function signOut(name) {
-  console.log("hi");
-}
 </script>
 
 </body>

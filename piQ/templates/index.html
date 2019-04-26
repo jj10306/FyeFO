@@ -66,12 +66,18 @@ function load_queue(queue, tas) {
   }
   console.log(tas);
   let tas_element = document.getElementById("tas");
-
+  var picdict = {"Jakob Brian Johnson":"jakob.png",
+                  "Damian William Henry":"damian.png"}
   for (var i = 0; i < tas.length; i++) {
     // let num = (i + 1).toString() + ". ";
     var para = document.createElement("p");
     var node = document.createTextNode(tas[i]);
+    var DOM_img = document.createElement("img");
+    DOM_img.src = "static/"+ picdict[tas[i]]
+    DOM_img.height = 150;
+    DOM_img.width = 100;
     para.appendChild(node);
+    para.appendChild(DOM_img);
     tas_element.appendChild(para);
   }
 
