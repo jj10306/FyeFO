@@ -2,7 +2,7 @@
 <html>
 <head>
     <title> FyeFO (Sign-In)</title>
-
+    <link rel="stylesheet" href="{{url_for('.static', filename='stylesheet.css')}}">
     <!--<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">-->
 
     <!--<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>-->
@@ -13,14 +13,19 @@
 
     <div id = "form">
         <form id="myForm" action= "/" method="POST">
-          <p> TA, what would you like to do? </p>
+          <p> Hello {{name}}, what would you like to do? </p>
           <input type="submit" id="remove" name="remove" value="Remove next">
           <input type="submit" name="clear" value="Clear the queue" onclick="youSure(event)">
           <input type="submit" id="exit" name="exit" value="Exit">
         </form>
     </div>
 
+
 <div id="queue">
+</div>
+
+<div id="tas">
+  <p> TAs on duty </p>
 </div>
 
 <script>
@@ -32,7 +37,7 @@ function on_load() {
     return response.json()
   })
   .then(function(myJson) {
-    load_queue(myJson["queue"]);
+    load_queue(myJson["queue"], myJson["tas"]);
   });
   //must pass function as function to be invoked (no parenthesis) otherwise, func will get called immediately
   //num seconds + 000 for the interval
@@ -42,17 +47,31 @@ function timeOut() {
   document.getElementById("exit").click();
 }
 
-function load_queue(response) {
-  let arr = response;
-  let element = document.getElementById("queue");
+function load_queue(queue, tas) {
 
-  for (var i = 0; i < arr.length; i++) {
+
+  let queue_element = document.getElementById("queue");
+
+  for (var i = 0; i < queue.length; i++) {
     let num = (i + 1).toString() + ". ";
     var para = document.createElement("p");
-    var node = document.createTextNode(num + arr[i]);
+    var node = document.createTextNode(num + queue[i]);
     para.appendChild(node);
-    element.appendChild(para);
+    queue_element.appendChild(para);
   }
+  console.log(tas);
+  let tas_element = document.getElementById("tas");
+
+  for (var i = 0; i < tas.length; i++) {
+    // let num = (i + 1).toString() + ". ";
+    var para = document.createElement("p");
+    var node = document.createTextNode(tas[i]);
+    para.appendChild(node);
+    tas_element.appendChild(para);
+  }
+
+
+
 }
 
 function youSure(event) {

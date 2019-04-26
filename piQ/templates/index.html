@@ -2,7 +2,7 @@
 <html>
 <head>
     <title> FyeFO (Sign-In)</title>
-
+    <link rel="stylesheet" href="{{url_for('.static', filename='stylesheet.css')}}">
     <!--<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">-->
 
     <!--<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>-->
@@ -24,6 +24,10 @@
 <div id="queue">
 </div>
 
+<div id="tas">
+  <p> TAs on duty </p>
+</div>
+
 <script>
 function auto_submit() {
   let x = document.getElementById("gtid").value;
@@ -37,23 +41,32 @@ function on_load() {
     return response.json()
   })
   .then(function(myJson) {
-    load_queue(myJson["queue"]);
+    load_queue(myJson["queue"], myJson["tas"]);
   });
 }
 
-function load_queue(response) {
-  console.log(response);
-  let arr = response;
-  let element = document.getElementById("queue");
+function load_queue(queue, tas) {
 
-  for (var i = 0; i < arr.length; i++) {
+
+  let queue_element = document.getElementById("queue");
+
+  for (var i = 0; i < queue.length; i++) {
     let num = (i + 1).toString() + ". ";
     var para = document.createElement("p");
-    var node = document.createTextNode(num + arr[i]);
+    var node = document.createTextNode(num + queue[i]);
     para.appendChild(node);
-    element.appendChild(para);
+    queue_element.appendChild(para);
   }
+  console.log(tas);
+  let tas_element = document.getElementById("tas");
 
+  for (var i = 0; i < tas.length; i++) {
+    // let num = (i + 1).toString() + ". ";
+    var para = document.createElement("p");
+    var node = document.createTextNode(tas[i]);
+    para.appendChild(node);
+    tas_element.appendChild(para);
+  }
 
 
 
