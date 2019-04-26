@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> FyeFO (Sign-In)</title>
+
+    <!--<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">-->
+
+    <!--<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>-->
+
+</head>
+<body onload="on_load()">
+    <h1> FyeFo: The CS301 Help Desk Queue (Sign-In)</h1>
+
+    <div id = "form">
+        <form id="myForm" action= "/" method="POST">
+          <p> TA, what would you like to do? </p>
+          <input type="submit" id="remove" name="remove" value="Remove next">
+          <input type="submit" name="clear" value="Clear the queue" onclick="youSure(event)">
+          <input type="submit" id="exit" name="exit" value="Exit">
+        </form>
+    </div>
+
+<div id="queue">
+</div>
+
+<script>
+
+
+
+function on_load() {
+  fetch("/queue").then(function(response) {
+    return response.json()
+  })
+  .then(function(myJson) {
+    load_queue(myJson["queue"]);
+  });
+  //must pass function as function to be invoked (no parenthesis) otherwise, func will get called immediately
+  //num seconds + 000 for the interval
+  setTimeout(timeOut, 10000);
+}
+function timeOut() {
+  document.getElementById("exit").click();
+}
+
+function load_queue(response) {
+  let arr = response;
+  let element = document.getElementById("queue");
+
+  for (var i = 0; i < arr.length; i++) {
+    let num = (i + 1).toString() + ". ";
+    var para = document.createElement("p");
+    var node = document.createTextNode(num + arr[i]);
+    para.appendChild(node);
+    element.appendChild(para);
+  }
+}
+
+function youSure(event) {
+  if (!confirm("You are about to clear the ENTIRE queue, are you sure you want to do this?")) {
+    event.preventDefault();
+  }
+}
+</script>
+
+</body>
+</html>
