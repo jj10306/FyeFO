@@ -4,6 +4,7 @@ from piQ.models import Queue
 from piQ.forms import Form
 from piQ.table import UserTable
 from piQ.logic import get_user_info
+from datetime import datetime
 
 source = Queue()
 tas = list()
@@ -26,6 +27,12 @@ def process_request(request):
     global source
     global name
     global active_ta
+    print("ACTIVE TA IS",active_ta)
+    avg_wait=0
+    try:
+        avg_wait = round(source.totalWait/source.totalHelped,2)
+    except:
+        avg_wait = 0
 
     if request.method == "POST":
         #different possible TA button presses
@@ -36,12 +43,12 @@ def process_request(request):
             temptas = source.tas
             source = Queue()
             source.tas = temptas
-            return render_template("index.html")
+            return render_template("index.html",wait=avg_wait)
         elif request.form.get("exit"):
-            return render_template("index.html")
+            return render_template("index.html",wait=avg_wait)
         elif request.form.get("signout"):
             source.removeTa(active_ta)
-            return render_template("index.html")
+            return render_template("index.html",wait=avg_wait)
 
         else:
             gtid = request.form["gtid"]
@@ -50,14 +57,15 @@ def process_request(request):
                 name = user_data["name"]
 
                 if user_data["role"] == "Ta":
+                    active_ta = name
                     if name not in source.tas:
                         tas.append(name)
                         source.tas.append(name)
-                        active_ta = name
+                        
                     return render_template("ta.html", name=name)
                 else:
                     if not source.isElement(name):
-                        source.enqueue(name)
+                        source.enqueue((name,datetime.now()))
             else:
                 flash("GTID not found")
-    return render_template("index.html")
+    return render_template("index.html",wait=avg_wait)

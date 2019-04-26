@@ -10,7 +10,7 @@
 </head>
 <body onload="on_load()">
     <h1> FyeFo: The CS301 Help Desk Queue (Sign-In)</h1>
-
+    <h2> Average wait time: {{wait}} min</h2>
     <div id = "form">
         <form id="myForm" action= "/" method="POST">
           Scan you Buzzcard or type your GTID (9-digit number) below! <input type="text" oninput="auto_submit()" name="gtid" id="gtid" autofocus>
@@ -75,7 +75,7 @@ function load_queue(queue, tas) {
     var DOM_img = document.createElement("img");
     DOM_img.src = "static/"+ picdict[tas[i]]
     DOM_img.height = 150;
-    DOM_img.width = 100;
+    DOM_img.width = 90;
     para.appendChild(node);
     para.appendChild(DOM_img);
     tas_element.appendChild(para);

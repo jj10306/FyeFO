@@ -1,3 +1,5 @@
+from datetime import datetime
+
 class Queue:
     def __init__(self):
         self.CAPACITY = 100
@@ -6,8 +8,10 @@ class Queue:
         self.back = 0
         self.size = 0
         self.tas = []
+        self.totalWait = 0
+        self.totalHelped = 0
     def enqueue(self,student): #back to right
-        if student == None:
+        if student[0] == None:
             return "Student cannot be None!"
         if self.size == len(self.arr):
             return "Queue is full :("
@@ -22,6 +26,8 @@ class Queue:
         self.arr[self.front] = None
         self.front = (self.front + 1) % len(self.arr)
         self.size -= 1
+        self.totalHelped += 1
+        self.totalWait += round((datetime.now() - returned[1]).seconds/60,2)
     def addTa(self,ta):
         if ta not in self.tas:
             self.tas.append(ta)
@@ -47,6 +53,6 @@ class Queue:
         temp = []
         index = self.front
         for i in range(self.size):
-            temp.append(self.arr[index])
+            temp.append(self.arr[index][0])
             index  = (index + 1) % len(self.arr)
         return temp
