@@ -3,7 +3,7 @@ from piQ import app
 from piQ.models import Queue
 from piQ.forms import Form
 from piQ.table import UserTable
-from piQ.logic import get_user_info
+from piQ.logic import get_user_info, getAvergeWait
 from datetime import datetime
 
 source = Queue()
@@ -22,6 +22,7 @@ def index():
 def serve():
     return jsonify({"queue": source.__repr__(), "tas": source.tas})
 
+
 #takes in a request and does the required logic
 def process_request(request):
 
@@ -29,20 +30,18 @@ def process_request(request):
     global name
     global active_ta
     print("ACTIVE TA IS: ",active_ta)
-    avg_wait=0
-    try:
-        avg_wait = round(source.totalWait/source.totalHelped,2)
-    except:
-        avg_wait = 0
+    avg_wait = getAvergeWait(source)
 
     if request.method == "POST":
         #different possible TA button presses
         if request.form.get("remove"):
             source.dequeue()
-            return render_template("ta.html", name=name)
+            avg_wait = getAvergeWait(source)
+            return render_template("ta.html", name=name, wait=avg_wait)
         elif request.form.get("clear"):
             temptas = source.tas
-            source = Queue()
+            source.clear()
+            avg_wait = getAvergeWait(source)
             source.tas = temptas
             return render_template("index.html",wait=avg_wait)
         elif request.form.get("exit"):
@@ -63,7 +62,7 @@ def process_request(request):
                         tas.append(name)
                         source.tas.append(name)
 
-                    return render_template("ta.html", name=name)
+                    return render_template("ta.html", name=name, wait=avg_wait)
                 else:
                     print(source.arr)
                     if not source.contains(name):

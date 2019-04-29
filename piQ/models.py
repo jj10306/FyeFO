@@ -42,9 +42,12 @@ class Queue:
         return self.size
     def clear(self):
         self.arr = [None] * self.CAPACITY
-        self.front = 0
+        self.front = 0 ## don't really need 'front' variable. can use back - size
         self.back = 0
         self.size = 0
+        self.tas = []
+        self.totalWait = 0
+        self.totalHelped = 0
     def isEmpty(self):
         return size == 0
     def contains(self, name):

@@ -1,9 +1,79 @@
-#tas {
-  position: relative;
-  left: 200px;
-  border: 3px solid black;
-
+body {
+  color: #4D2C3D;
+}
+hr {
+  height:3px;
+  border: #4D2C3D;
+  background-color: #4D2C3D;
+}
+h1 {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}
+h3 {
+  margin-left: 10px;
+  text-decoration: underline;
+}
+h4 {
+  margin-left: 10px;
+  font-weight: bold;
+  text-decoration: underline;
 }
 body {
-  background: grey;
+  /* background: #000018; */
+  background: #F7F5E6;
 }
+
+#ta1 {
+  display:inline-block; margin-right:20px; margin-left:10px;
+}
+#ta2 {
+  display:inline-block;
+}
+#myForm {
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: underline;
+}
+#ta-form {
+  text-align: center;
+  font-weight: bold;
+}
+#ta-myForm {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+#queue {
+  margin-left:10px;
+  font-size: 19px;
+}
+.ta-name {
+  font-size: 19px;
+}
+img {
+  margin-left:30px;
+}
+
+
+#block1 {
+  display: inline-block; margin-right: 15px;
+}
+#block2 {
+  display: inline-block; margin-right: 15px;
+}
+#block3 {
+  display: inline-block; margin-right: 15px;
+}
+#block4 {
+  display: inline-block; margin-right: 15px;
+}
+#block5 {
+  display: inline-block; margin-right: 15px;
+}
+/* #ta2 img {
+  margin-left:30px;
+} */

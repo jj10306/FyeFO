@@ -1,5 +1,12 @@
 from piQ.data_init import data_dict, hash_city
-from pprint import pprint
+
+
+def getAvergeWait(source):
+
+    try:
+        return round(source.totalWait/source.totalHelped,2)
+    except:
+        return 0
 
 def get_user_info(gtid):
     try:
