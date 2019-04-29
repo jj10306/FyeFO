@@ -21,10 +21,11 @@
     <div id = "ta-form">
         <form id="ta-myForm" action= "/" method="POST">
           <p> Hello {{name}}, what would you like to do? </p>
-          <input type="submit" id="remove" name="remove" value="Remove next">
-          <input type="submit" name="clear" value="Clear the queue" onclick="clearConfirm(event)">
-          <input type="submit" id="signout" name="signout" value="Sign-Out" onclick="signOutConfirm(event)">
-          <input type="submit" id="exit" name="exit" value="Exit">
+          <input type="submit" class="btn btn-primary" id="remove" name="remove" value="Remove next">
+          <input type="submit" class="btn btn-primary" name="clear" value="Clear the queue" onclick="clearConfirm(event)">
+          <input type="submit" class="btn btn-primary" id="exit" name="exit" value="Exit">
+          <input type="submit" class="btn btn-primary" id="signout" name="signout" value="Sign-Out" onclick="signOutConfirm(event)">
+
         </form>
     </div>
 
