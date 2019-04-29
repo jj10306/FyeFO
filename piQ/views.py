@@ -24,6 +24,7 @@ def serve():
 
 #takes in a request and does the required logic
 def process_request(request):
+
     global source
     global name
     global active_ta
@@ -61,7 +62,7 @@ def process_request(request):
                     if name not in source.tas:
                         tas.append(name)
                         source.tas.append(name)
-                        
+
                     return render_template("ta.html", name=name)
                 else:
                     if not source.isElement(name):
