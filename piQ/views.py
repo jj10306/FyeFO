@@ -27,7 +27,7 @@ def process_request(request):
     global source
     global name
     global active_ta
-    print("ACTIVE TA IS",active_ta)
+    print("ACTIVE TA IS: ",active_ta)
     avg_wait=0
     try:
         avg_wait = round(source.totalWait/source.totalHelped,2)
@@ -64,7 +64,8 @@ def process_request(request):
                         
                     return render_template("ta.html", name=name)
                 else:
-                    if not source.isElement(name):
+                    print(source.arr)
+                    if not source.contains(name):
                         source.enqueue((name,datetime.now()))
             else:
                 flash("GTID not found")

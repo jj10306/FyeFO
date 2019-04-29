@@ -47,8 +47,11 @@ class Queue:
         self.size = 0
     def isEmpty(self):
         return size == 0
-    def isElement(self, element):
-        return element in self.arr
+    def contains(self, name):
+        for i in range(self.front, self.back):
+            if name == self.arr[i][0]:
+                return True
+        return False
     def __repr__(self):
         temp = []
         index = self.front
