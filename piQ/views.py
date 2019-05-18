@@ -14,6 +14,12 @@ active_ta = ""
 def index():
     return process_request(request)
 
+@app.route("/forgot")
+def forgot():
+    avg_wait = getAvergeWait(source)
+    return render_template("forgot.html", wait=avg_wait)
+
+
     #always display table, regardlesss of if change was made or not
     # table=UserTable(source.__repr__())
 

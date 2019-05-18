@@ -25,6 +25,26 @@ body {
   /* background: #000018; */
   background: #F7F5E6;
 }
+a {
+  font-size: 13px;
+  text-align: center;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
 
 #ta1 {
   display:inline-block; margin-right:20px; margin-left:10px;
@@ -36,7 +56,7 @@ body {
   font-size: 20px;
   text-align: center;
   font-weight: bold;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 #ta-form {
   text-align: center;
@@ -53,6 +73,15 @@ body {
 }
 .ta-name {
   font-size: 19px;
+}
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+
+    background-color: #4D2C3D;
+    border-color: #4D2C3D;
 }
 img {
   margin-left:30px;

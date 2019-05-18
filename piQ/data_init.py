@@ -31,7 +31,7 @@ return - hex string of the hash
 """
 def hash_city(gtid):
     # hash constructor takes in a series of bytes as a param, so use str.encode()
-    hash_obj = hashlib.sha3_512(gtid.encode())
+    hash_obj = hashlib.sha512(gtid.encode())
     # hash is a hex string of the hash
     hash = hash_obj.hexdigest()
     return hash
