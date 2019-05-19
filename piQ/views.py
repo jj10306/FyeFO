@@ -1,8 +1,6 @@
 from flask import render_template, request, jsonify, url_for, flash
 from piQ import app
 from piQ.models import Queue
-from piQ.forms import Form
-from piQ.table import UserTable
 from piQ.logic import get_user_info, getAvergeWait
 from datetime import datetime
 

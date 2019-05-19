@@ -49,7 +49,7 @@ class Queue:
         self.totalWait = 0
         self.totalHelped = 0
     def isEmpty(self):
-        return size == 0
+        return self.size == 0
     def contains(self, name):
         for i in range(self.front, self.back):
             if name == self.arr[i][0]:
