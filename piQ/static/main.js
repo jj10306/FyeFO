@@ -92,7 +92,5 @@ function validate_disappear() {
     setTimeout(() => flag.style.display = 'none', 5000);
   }
 }
-// function disappear(flag) {
-
-// } 
+ 
 

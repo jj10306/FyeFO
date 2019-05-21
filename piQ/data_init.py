@@ -19,13 +19,12 @@ def data_scrape():
 
     for line in student_lines:
         line = line.strip()
-        name, gtid, role = line.split(",")
+        name, hashed_gtid, role = line.split(",")
         # gtid is now hashed
-        gtid = hash_city(gtid)
-        data_dict[gtid] = {"name": name, "role": role}
+        data_dict[hashed_gtid] = {"name": name, "role": role}
 
 """
-Produces a hash of the gtid
+Produces a hash of the gtids
 params - gtid (9 digit str gtid)
 return - hex string of the hash
 """
