@@ -23,12 +23,9 @@ function signOutConfirm(event) {
 
 //used in both index.html and ta.html to fetch the queue and current TAs from the server-side
 function on_load() {
-  fetch("/queue").then(function(response) {
-    return response.json()
-  })
-  .then(function(myJson) {
-    load_queue(myJson["queue"], myJson["tas"]);
-  });
+  fetch("/queue")
+    .then(response => response.json())
+    .then(myJson => load_queue(myJson["queue"], myJson["tas"]));
 }
 
 //called after 10s have elapsed on ta.html to ensure TA doesn't accidentily not stay signed in
