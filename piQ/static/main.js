@@ -89,3 +89,13 @@ function load_queue(queue, tas) {
 
 
 }
+function validate_disappear() {
+  let flag = document.getElementById("invalid") || document.getElementById("not_on_roster");
+  if (flag) {
+    setTimeout(() => flag.style.display = 'none', 5000);
+  }
+}
+// function disappear(flag) {
+
+// } 
+

@@ -104,6 +104,11 @@ img {
 #block5 {
   display: inline-block; margin-right: 15px;
 }
+.m {
+  color: red;
+  border-color: red;
+  font-size: 13px;
+}
 /* #ta2 img {
   margin-left:30px;
 } */

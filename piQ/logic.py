@@ -12,7 +12,6 @@ def get_user_info(gtid):
     try:
         hashed = hash_city(gtid)
         user_dict = data_dict[hashed]
-        print(user_dict)
         return user_dict
     except KeyError: #if the person is not on the roster
-        return {"name": gtid, "role": "student"}
+        return None

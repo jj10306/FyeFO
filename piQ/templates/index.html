@@ -11,8 +11,8 @@
 
 <a></a>
 </head>
-<body onload="on_load()">
-    <h1> FyeFo: The CS301 Help Desk Queue</h1>
+<body onload="on_load();validate_disappear()">
+    <h1> CS301 Help Desk Sign In</h1>
     <h2> Average wait time: {{wait}} min</h2>
     <hr>
     <div id="tas">
@@ -21,19 +21,19 @@
     <hr>
     <div id = "form">
         <form id="myForm" action= "/" method="POST">
-          Scan your Buzzcard<br>
+          Scan your Buzzcard or Type your 9 digit GTID<br>
           <input type="password" oninput="auto_submit()" name="gtid" id="gtid" autofocus> 
+
           <!-- <span id="icon" class="glyphicon glyphicon-remove"></span> -->
 
           <br>
-          <!-- {% with messages = get_flashed_messages() %}
-          {%if messages%}
-            {% for message in messages %}
-              <p>{{message}}</p>
-            {% endfor %}
+          {%if invalid%}
+          <span id="invalid" class="m">Please enter 9-digit GTID</span>
           {% endif %}
-        {% endwith %} -->
-          <a href="forgot">Forgot Buzzcard?</a>
+          {%if not_on_roster%}
+          <span id="not_on_roster" class="m">GTID not found in class roster</span>
+          {% endif %}
+          <!-- <a href="forgot">Forgot Buzzcard?</a> -->
     </div>
 
 
