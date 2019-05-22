@@ -53,6 +53,7 @@ function load_queue(queue, tas) {
     //gives us the number for css id
     container.appendChild(queue_element);
 
+
   }
 
   // TA displaying
