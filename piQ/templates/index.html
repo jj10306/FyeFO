@@ -12,7 +12,7 @@
 <a></a>
 </head>
 <body onload="on_load();validate_disappear()">
-    <h1> CS301 Help Desk Sign In</h1>
+    <h1> CS1301 Help Desk Sign In</h1>
     <h2> Average wait time: {{wait}} min</h2>
     <hr>
     <div id="tas">
@@ -22,16 +22,16 @@
     <div id = "form">
         <form id="myForm" action= "/" method="POST">
           Scan your Buzzcard or Type your 9 digit GTID<br>
-          <input type="password" oninput="auto_submit()" name="gtid" id="gtid" autofocus> 
+          <input type="password" oninput="auto_submit()" name="gtid" id="gtid" placeholder= "(e.g 903721301)" autofocus> 
 
           <!-- <span id="icon" class="glyphicon glyphicon-remove"></span> -->
 
           <br>
           {%if invalid%}
-          <span id="invalid" class="m">Please enter 9-digit GTID</span>
+          <span id="invalid" class="inputError">Please enter 9-digit GTID</span>
           {% endif %}
           {%if not_on_roster%}
-          <span id="not_on_roster" class="m">GTID not found in class roster</span>
+          <span id="not_on_roster" class="inputError">GTID not found in class roster</span>
           {% endif %}
           <!-- <a href="forgot">Forgot Buzzcard?</a> -->
     </div>

@@ -10,7 +10,7 @@
 
 </head>
 <body onload="on_load()">
-    <h1> CS301 Help Desk Sign In</h1>
+    <h1> CS1301 Help Desk Sign In</h1>
     <h2> Average wait time: {{wait}} min</h2>
     <hr>
     <div id="tas">
@@ -20,7 +20,7 @@
     <div id = "form">
         <form id="myForm" action= "/" method="POST">
           Type in your 9 digit GTID<br>
-          <input name="name" id="name" autofocus>
+          <input type = "password" name="gtid" id="gtid" placeholder= "(e.g 903040115)" autofocus>
           <br>
           <input type="submit" class="btn btn-primary" id="add" name="add" value="Submit">
     </div>

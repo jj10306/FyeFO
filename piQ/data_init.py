@@ -19,7 +19,8 @@ def data_scrape():
 
     for line in student_lines:
         line = line.strip()
-        name, hashed_gtid, role = line.split(",")
+        name, gitid, role = line.split(",")
+        hashed_gtid = hash_city(gitid)
         # gtid is now hashed
         data_dict[hashed_gtid] = {"name": name, "role": role}
 

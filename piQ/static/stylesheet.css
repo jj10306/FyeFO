@@ -80,10 +80,11 @@ a:active {
 .btn-primary:active,
 .btn-primary:visited,
 .btn-primary:focus {
-
-    background-color: #4D2C3D;
+    background-color: #4D2C3D !important;
     border-color: #4D2C3D;
 }
+
+
 img {
   margin-left:30px;
 }
@@ -104,11 +105,17 @@ img {
 #block5 {
   display: inline-block; margin-right: 15px;
 }
-.m {
+#gtid {
+  outline-color: #4D2C3D;
+}
+.inputError {
   color: red;
   border-color: red;
   font-size: 13px;
 }
+
+
+
 /* #ta2 img {
   margin-left:30px;
 } */
