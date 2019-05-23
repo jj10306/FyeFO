@@ -75,13 +75,20 @@ a:active {
 .ta-name {
   font-size: 19px;
 }
-.btn-primary,
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary:visited,
-.btn-primary:focus {
+.button,
+.button:hover,
+.button:visited,
+.button:focus {
     background-color: #4D2C3D !important;
     border-color: #4D2C3D;
+    color: #F7F5E6;
+    padding: 10px;
+    border-radius: 3px;
+    box-shadow: 2px 3px black;
+    outline: none;
+}
+.button:active {
+  box-shadow: none;
 }
 
 
