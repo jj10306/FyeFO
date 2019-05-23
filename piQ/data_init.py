@@ -19,7 +19,6 @@ def data_scrape():
 
     for line in student_lines:
         line = line.strip()
-<<<<<<< HEAD
         last, first, gtid, role = line.split(",")
 
         last = last.strip('"').strip()
@@ -27,12 +26,6 @@ def data_scrape():
         # gtid is now hashed
         # gtid = hash_city(gtid) //uncomment this line if csv data's gtid's are not hashed yet
         data_dict[gtid] = {"name": first + " " + last, "role": role}
-=======
-        name, gitid, role = line.split(",")
-        hashed_gtid = hash_city(gitid)
-        # gtid is now hashed
-        data_dict[hashed_gtid] = {"name": name, "role": role}
->>>>>>> 361a29bda4ead8a853eb85c8dcd5bd75e1cb3467
 
 """
 Produces a hash of the gtids

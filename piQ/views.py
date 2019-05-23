@@ -65,14 +65,11 @@ def process_request(request):
 
                     return render_template("ta.html", name=name, wait=avg_wait)
                 else:
-                    print(source.arr)
                     if not source.contains(name):
                         source.enqueue((name,datetime.now()))
             else:
                 if len(gtid) == 9:
-                    print("not in class")
                     return render_template("index.html",wait=avg_wait, not_on_roster=True)
                 else:
-                    print("invalid")
                     return render_template("index.html",wait=avg_wait, invalid=True)
     return render_template("index.html",wait=avg_wait)
