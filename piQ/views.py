@@ -57,7 +57,7 @@ def process_request(request):
             user_data = get_user_info(gtid)
             if user_data:
                 name = user_data["name"]
-
+                print(user_data)
                 if user_data["role"] == "Ta":
                     active_ta = name
                     if name not in source.tas:

@@ -10,7 +10,7 @@ def data_scrape():
     #gets absolute path of current directory: /Users/Jakob/Desktop/pi_queue/FyeFO/piQ
     basepath = path.dirname(__file__)
     #steps back two levels and into /data directory where file is located
-    filepath = path.abspath(path.join(basepath, "../../data", "clean_data.csv"))
+    filepath = path.abspath(path.join(basepath, "../../data", "summer_2019_hashed_data.csv"))
     roster = open(filepath, "r")
 
     # roster = open("clean_data.csv")
@@ -19,10 +19,13 @@ def data_scrape():
 
     for line in student_lines:
         line = line.strip()
-        name, gtid, role = line.split(",")
+        last, first, gtid, role = line.split(",")
+
+        last = last.strip('"').strip()
+        first = first.strip('"').strip()
         # gtid is now hashed
-        gtid = hash_city(gtid)
-        data_dict[gtid] = {"name": name, "role": role}
+        # gtid = hash_city(gtid) //uncomment this line if csv data's gtid's are not hashed yet
+        data_dict[gtid] = {"name": first + " " + last, "role": role}
 
 """
 Produces a hash of the gtid

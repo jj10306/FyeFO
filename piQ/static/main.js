@@ -58,10 +58,12 @@ function load_queue(queue, tas) {
   // TA displaying
   let tas_element = document.getElementById("tas");
   //dictionary (JS obj containing TA's pictures)
-  var picdict = {"Jakob Brian Johnson":"jakob.png",
-                  "Damian William Henry":"damian.png"}
+  var picdict = {"Jakob Johnson":"jakob.png",
+                  "Damian William Henry":"damian.png", 
+                  "Akash Krishna Goyal" :"akash.JPG",
+                "Anthony Zheng": "anthony.JPG"}
   for (var i = 0; i < tas.length; i++) {
-    
+    console.log(tas);
     let container = document.createElement("div");
     container.id = "ta" + (i + 1).toString();
     container.className = "ta-name";
