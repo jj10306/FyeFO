@@ -75,15 +75,23 @@ a:active {
 .ta-name {
   font-size: 19px;
 }
-.btn-primary,
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary:visited,
-.btn-primary:focus {
-
-    background-color: #4D2C3D;
+.button,
+.button:hover,
+.button:visited,
+.button:focus {
+    background-color: #4D2C3D !important;
     border-color: #4D2C3D;
+    color: #F7F5E6;
+    padding: 10px;
+    border-radius: 3px;
+    box-shadow: 2px 3px black;
+    outline: none;
 }
+.button:active {
+  box-shadow: none;
+}
+
+
 img {
   margin-left:30px;
 }
@@ -104,11 +112,16 @@ img {
 #block5 {
   display: inline-block; margin-right: 15px;
 }
-.m {
+#gtid {
+  outline-color: #4D2C3D;
+}
+.inputError {
   color: red;
   border-color: red;
   font-size: 13px;
 }
-/* #ta2 img {
-  margin-left:30px;
-} */
+::placeholder {
+  font-size: 15px;
+  text-align: center;
+}
+

@@ -53,6 +53,7 @@ function load_queue(queue, tas) {
     //gives us the number for css id
     container.appendChild(queue_element);
 
+
   }
 
   // TA displaying
@@ -69,16 +70,16 @@ function load_queue(queue, tas) {
     container.className = "ta-name";
     var para = document.createElement("p");
     var node = document.createTextNode(tas[i]);
-    var br = document.createElement("br");
+    para.appendChild(node);
 
     var DOM_img = document.createElement("img");
     DOM_img.src = "static/"+ picdict[tas[i]]
     DOM_img.height = 150;
     DOM_img.width = 90;
 
-    para.appendChild(node);
-
+    var br = document.createElement("br");
     container.appendChild(br);
+    
     container.appendChild(DOM_img);
     container.appendChild(para);
 
@@ -94,7 +95,5 @@ function validate_disappear() {
     setTimeout(() => flag.style.display = 'none', 5000);
   }
 }
-// function disappear(flag) {
-
-// } 
+ 
 

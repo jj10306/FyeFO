@@ -2,14 +2,18 @@
 <html>
 <head>
     <title> FyeFO </title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <link rel="stylesheet" href="{{url_for('.static', filename='stylesheet.css')}}">
 
     <script src="{{ url_for('.static',filename='main.js') }}" type="text/javascript"></script>
 
 </head>
 <body onload="on_load();setTimeout(timeOut,10000)">
+<<<<<<< HEAD
     <h1> The CS301 Help Desk Queue </h1>
+=======
+    <h1> The CS1301 Help Desk Queue </h1>
+>>>>>>> 361a29bda4ead8a853eb85c8dcd5bd75e1cb3467
     <h2> Average wait time: {{wait}} min</h2>
     <hr>
     <div id="tas">
@@ -19,11 +23,10 @@
     <div id = "ta-form">
         <form id="ta-myForm" action= "/" method="POST">
           <p> Hello {{name}}, what would you like to do? </p>
-          <input type="submit" class="btn btn-primary" id="remove" name="remove" value="Remove next">
-          <input type="submit" class="btn btn-primary" name="clear" value="Clear the queue" onclick="clearConfirm(event)">
-          <input type="submit" class="btn btn-primary" id="exit" name="exit" value="Exit">
-          <input type="submit" class="btn btn-primary" id="signout" name="signout" value="Sign-Out" onclick="signOutConfirm(event)">
-
+          <input type="submit" class="button" id="remove" name="remove" value="Remove next">
+          <input type="submit" class="button" name="clear" value="Clear the queue" onclick="clearConfirm(event)">
+          <input type="submit" class="button" id="exit" name="exit" value="Exit">
+          <input type="submit" class="button" id="signout" name="signout" value="Sign-Out" onclick="signOutConfirm(event)">
         </form>
     </div>
 

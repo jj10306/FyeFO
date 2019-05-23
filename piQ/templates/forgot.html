@@ -2,7 +2,7 @@
 <html>
 <head>
     <title> FyeFO </title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <link rel="stylesheet" href="{{url_for('.static', filename='stylesheet.css')}}">
 
     <script src="{{ url_for('.static',filename='main.js') }}" type="text/javascript"></script>
@@ -10,7 +10,7 @@
 
 </head>
 <body onload="on_load()">
-    <h1> CS301 Help Desk Sign In</h1>
+    <h1> CS1301 Help Desk Sign In</h1>
     <h2> Average wait time: {{wait}} min</h2>
     <hr>
     <div id="tas">
@@ -20,7 +20,7 @@
     <div id = "form">
         <form id="myForm" action= "/" method="POST">
           Type in your 9 digit GTID<br>
-          <input name="name" id="name" autofocus>
+          <input type = "password" name="gtid" id="gtid" placeholder= "(e.g 903040115)" autofocus>
           <br>
           <input type="submit" class="btn btn-primary" id="add" name="add" value="Submit">
     </div>
